@@ -10,9 +10,28 @@ addTodoBtn.addEventListener("click", (e) => {
   if (todoInput.value.trim().length > 0) {
     const todoItem = document.createElement("div");
     todoItem.classList.add("todo-item");
-    todoItem.textContent = todoInput.value;
+
+    const todoText = createTodoText(todoInput.value);
+    const deleteTodoBtn = createDeleteTodoBtn(todoItem);
+
+    todoItem.append(todoText, deleteTodoBtn);
 
     todoList.appendChild(todoItem);
     todoInput.value = "";
   }
 });
+
+function createTodoText(todoContent) {
+  const todoText = document.createElement("span");
+  todoText.classList.add("todo-text");
+  todoText.textContent = todoContent;
+  return todoText;
+}
+
+function createDeleteTodoBtn(todoItem) {
+  const deleteTodoBtn = document.createElement("button");
+  deleteTodoBtn.classList.add("delete-todo-btn");
+  deleteTodoBtn.textContent = "Delete Todo";
+  deleteTodoBtn.onclick = () => todoItem.remove();
+  return deleteTodoBtn;
+}

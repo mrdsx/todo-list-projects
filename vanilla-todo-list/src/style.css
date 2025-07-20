@@ -42,8 +42,27 @@ button {
 
 .todo-item {
   padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
   border-radius: 0.5rem;
   background: rgb(49, 48, 77);
   width: 300px;
-  word-wrap: break-word;
+}
+
+.todo-text {
+  word-break: break-all;
+}
+
+.delete-todo-btn {
+  background: red;
+  color: white;
+  border: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.delete-todo-btn:hover {
+  background: rgb(206, 0, 0);
 }
