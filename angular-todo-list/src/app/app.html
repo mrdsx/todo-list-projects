@@ -1,0 +1,35 @@
+<main
+  class="flex h-screen w-full flex-col items-center bg-gray-700 pt-[20vh] text-white"
+>
+  <h1 class="mt-4 mb-2 text-2xl">{{ title() }}</h1>
+  <form class="flex gap-4">
+    <input
+      #todoInputRef
+      class="rounded-md bg-white p-1 text-black"
+      type="text"
+    />
+    <button
+      class="rounded-md bg-gray-400 px-2 hover:bg-gray-500"
+      type="submit"
+      (click)="addTodo($event, todoInputRef)"
+    >
+      Add Todo
+    </button>
+  </form>
+  <div class="mt-4 flex h-80 w-80 flex-col gap-4 overflow-auto">
+    <div
+      *ngFor="let todo of todos()"
+      class="flex items-center justify-between gap-4 rounded-lg bg-neutral-400 p-2 px-4 break-all"
+    >
+      <div>{{ todo.content }}</div>
+      <button
+        class="rounded-md bg-red-600 p-1 whitespace-nowrap hover:bg-red-700"
+        (click)="deleteTodo(todo)"
+      >
+        Delete Todo
+      </button>
+    </div>
+  </div>
+</main>
+
+<router-outlet />
