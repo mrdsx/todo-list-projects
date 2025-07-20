@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "format": "npx prettier --plugin=prettier-plugin-tailwindcss --write src/app/app.html",
-    "start": "ng serve",
+    "dev": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
