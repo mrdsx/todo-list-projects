@@ -7,19 +7,24 @@ const addTodoBtn = document.querySelector("#add-todo");
 addTodoBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  if (todoInput.value.trim().length > 0) {
-    const todoItem = document.createElement("div");
-    todoItem.classList.add("todo-item");
+  if (todoInput.value.trim().length <= 0) return;
 
-    const todoText = createTodoText(todoInput.value);
-    const deleteTodoBtn = createDeleteTodoBtn(todoItem);
-
-    todoItem.append(todoText, deleteTodoBtn);
-
-    todoList.appendChild(todoItem);
-    todoInput.value = "";
-  }
+  const todoItem = createTodoItem();
+  todoList.appendChild(todoItem);
+  todoInput.value = "";
 });
+
+function createTodoItem() {
+  const todoItem = document.createElement("div");
+  todoItem.classList.add("todo-item");
+
+  const todoText = createTodoText(todoInput.value);
+  const deleteTodoBtn = createDeleteTodoBtn(todoItem);
+
+  todoItem.append(todoText, deleteTodoBtn);
+
+  return todoItem;
+}
 
 function createTodoText(todoContent) {
   const todoText = document.createElement("span");
