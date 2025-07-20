@@ -9,7 +9,7 @@ import TodoList from "./components/TodoList.vue";
       <form class="my-4 flex justify-center gap-4">
         <input class="bg-white p-1" type="text" />
         <button
-          class="bg-orange-400 px-2 hover:bg-orange-500"
+          class="bg-indigo-400 px-2 hover:bg-indigo-500"
           v-on:click="(e) => e.preventDefault()"
         >
           Add Todo
