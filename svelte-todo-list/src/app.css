@@ -4,8 +4,16 @@
   *,
   *::before,
   *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    @apply m-0 box-border p-0;
+  }
+
+  input,
+  button {
+    @apply rounded-lg p-1;
+  }
+
+  input[type="button"],
+  button {
+    @apply cursor-pointer px-2 text-white;
   }
 }
