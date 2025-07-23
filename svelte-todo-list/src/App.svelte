@@ -1,13 +1,15 @@
-<script lang="ts">
+<script lang="ts" module>
+  import Todos from "./lib/Todos.svelte";
+
   let todoInput: HTMLInputElement | null = null;
 
-  interface Todo {
+  export interface Todo {
     content: string;
   }
 
-  let todos: Todo[] = $state([]);
+  let todos = $state<Todo[]>([]);
 
-  function addTodo(e: Event) {
+  function addTodo(e: Event): void {
     e.preventDefault();
 
     if (todoInput!.value.trim().length <= 0) return;
@@ -15,10 +17,6 @@
     todos.push({ content: todoInput!.value });
 
     todoInput!.value = "";
-  }
-
-  function deleteTodo(targetTodo: Todo) {
-    todos = todos.filter((todo) => todo !== targetTodo);
   }
 </script>
 
@@ -41,20 +39,6 @@
         Add Todo
       </button>
     </form>
-    <div class="grid gap-2">
-      {#each todos as todo}
-        <div
-          class="flex w-80 items-center justify-between gap-2 rounded-lg bg-white p-2"
-        >
-          <div class="text-start break-all">{todo.content}</div>
-          <button
-            class="self-start bg-red-500 whitespace-nowrap hover:bg-red-600"
-            onclick={() => deleteTodo(todo)}
-          >
-            Delete
-          </button>
-        </div>
-      {/each}
-    </div>
+    <Todos {todos} />
   </div>
 </main>
