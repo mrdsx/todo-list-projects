@@ -20,7 +20,7 @@
   }
 </script>
 
-<form>
+<form class="flex gap-2">
   <input
     class="bg-white p-1 text-black"
     id="todo-input"
