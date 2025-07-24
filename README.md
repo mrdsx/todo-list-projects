@@ -7,6 +7,7 @@ This repository contains Todo List apps written in next frameworks:
 3. Angular
 4. Vue
 5. Svelte
+6. Lit
 
 ## Getting started
 
