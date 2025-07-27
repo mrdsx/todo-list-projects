@@ -15,8 +15,8 @@ function handleSubmit(e: Event): void {
 
   const todoInputVal = (todoInputRef.value as HTMLInputElement).value;
   if (todoInputVal.trim().length <= 0) return;
-  addTodo(todoInputVal);
 
+  addTodo(todoInputVal);
   (todoInputRef.value as HTMLInputElement).value = "";
 }
 

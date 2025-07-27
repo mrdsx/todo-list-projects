@@ -11,11 +11,10 @@
 
   function addTodo(e: Event): void {
     e.preventDefault();
-
+    
     if (todoInput!.value.trim().length <= 0) return;
 
     todos.push({ content: todoInput!.value });
-
     todoInput!.value = "";
   }
 </script>
