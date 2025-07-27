@@ -6,7 +6,7 @@ import {
 import type { Todo } from "../app/App";
 
 const counterSlice = createSlice({
-  name: "counter",
+  name: "todos",
   initialState: {
     lastTodoId: 0,
     todos: [] as Todo[],
