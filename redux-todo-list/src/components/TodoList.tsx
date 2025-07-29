@@ -1,12 +1,13 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import type { Todo } from "../app/App";
-import { deleteTodo, store, type RootState } from "../store/store";
+import { deleteTodo, type RootState } from "../store/store";
 
 export function TodoList() {
   const todos = useSelector((state: RootState) => state.todos);
+  const dispatch = useDispatch();
 
   function handleClick(targetTodo: Todo): void {
-    store.dispatch(deleteTodo(targetTodo));
+    dispatch(deleteTodo(targetTodo));
   }
 
   return (
