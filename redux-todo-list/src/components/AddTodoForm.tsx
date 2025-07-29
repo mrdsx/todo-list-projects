@@ -1,19 +1,18 @@
+import { addTodo } from "../store/store";
 import { useRef } from "react";
-import { addTodo, incrementLastTodoId, store } from "../store/store";
+import { useDispatch } from "react-redux";
 
 export function AddTodoForm() {
   const todoInputRef = useRef<HTMLInputElement>(null);
+  const dispatch = useDispatch();
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
     e.preventDefault();
-    store.dispatch(incrementLastTodoId());
-    const { lastTodoId } = store.getState();
 
     const todoInputValue = todoInputRef.current!.value;
     if (todoInputValue!.trim().length === 0) return;
 
-    const newTodo = { id: lastTodoId, content: todoInputValue };
-    store.dispatch(addTodo(newTodo));
+    dispatch(addTodo(todoInputValue));
     todoInputRef.current!.value = "";
   }
 

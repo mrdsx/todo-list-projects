@@ -12,19 +12,18 @@ const todosSlice = createSlice({
     todos: [] as Todo[],
   },
   reducers: {
-    addTodo: (state, action: PayloadAction<Todo>) => {
-      state.todos = [...state.todos, action.payload];
+    addTodo: (state, action: PayloadAction<string>) => {
+      state.lastTodoId += 1;
+      const newTodo = { id: state.lastTodoId, content: action.payload };
+      state.todos = [...state.todos, newTodo];
     },
     deleteTodo: (state, action: PayloadAction<Todo>) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload.id);
     },
-    incrementLastTodoId: (state) => {
-      state.lastTodoId += 1;
-    },
   },
 });
 
-export const { addTodo, deleteTodo, incrementLastTodoId } = todosSlice.actions;
+export const { addTodo, deleteTodo } = todosSlice.actions;
 
 export const store = configureStore({
   reducer: todosSlice.reducer,
