@@ -5,7 +5,7 @@ import {
 } from "@reduxjs/toolkit";
 import type { Todo } from "../app/App";
 
-const counterSlice = createSlice({
+const todosSlice = createSlice({
   name: "todos",
   initialState: {
     lastTodoId: 0,
@@ -24,11 +24,10 @@ const counterSlice = createSlice({
   },
 });
 
-export const { addTodo, deleteTodo, incrementLastTodoId } =
-  counterSlice.actions;
+export const { addTodo, deleteTodo, incrementLastTodoId } = todosSlice.actions;
 
 export const store = configureStore({
-  reducer: counterSlice.reducer,
+  reducer: todosSlice.reducer,
 });
 
 export type RootState = ReturnType<typeof store.getState>;
