@@ -9,7 +9,7 @@ export interface Todo {
   content: string;
 }
 
-export default function About() {
+export default function Root() {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   return (
