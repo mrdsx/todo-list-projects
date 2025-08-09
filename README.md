@@ -3,7 +3,7 @@
 This repository contains Todo List apps written using next libraries & frameworks:
 
 1. Vanilla
-2. React (ReactJS, Redux)
+2. React (ReactJS, Redux, NextJS)
 3. Angular
 4. Vue
 5. Svelte
