@@ -1,0 +1,18 @@
+import { TrackedArray } from 'ripple';
+import { type Todo } from './App.ripple';
+
+export component TodosList({ todos }: { todos: TrackedArray<Todo> }) {
+	<ul class="w-100 grid gap-2">
+		for (const todo of @todos; index i) {
+			<li class="bg-white p-2 flex justify-between text-md rounded-lg">
+				<p class="break-all max-h-20 overflow-auto text-ellipsis">{todo.text}</p>
+				<button
+					class="button h-fit bg-red-500 text-white hover:bg-red-400"
+					onclick={() => (@todos.splice(i, 1))}
+				>
+					{'Del'}
+				</button>
+			</li>
+		}
+	</ul>
+}

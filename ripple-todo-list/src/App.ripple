@@ -1,0 +1,17 @@
+import { TrackedArray } from 'ripple';
+import { AddTodoForm } from './AddTodoForm.ripple';
+import { TodosList } from './TodosList.ripple';
+
+export type Todo = { text: string };
+
+export component App() {
+	let todos = new TrackedArray<Todo>();
+
+	<div class="min-h-screen bg-gray-400 flex justify-center">
+		<div class="mt-[30vh] flex flex-col items-center text-lg gap-2">
+			<span class="font-semibold text-2xl">{'Todo App'}</span>
+			<AddTodoForm {todos} />
+			<TodosList {todos} />
+		</div>
+	</div>
+}

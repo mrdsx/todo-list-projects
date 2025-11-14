@@ -1,0 +1,28 @@
+import { type Todo } from './App.ripple';
+import { track, TrackedArray } from 'ripple';
+
+export component AddTodoForm({ todos }: { todos: TrackedArray<Todo> }) {
+	let input = track<HTMLInputElement>();
+
+	const inputRef = (node) => {
+		@input = node;
+		return () => (@input = undefined);
+	};
+
+	const handleSubmit = (event: FormDataEvent) => {
+		event.preventDefault();
+		if (@input.value.trim().length === 0) return;
+
+		@todos.push({ text: @input.value.trim() });
+		@input.value = '';
+	};
+
+	<form onsubmit={handleSubmit}>
+		<input
+			class="bg-white rounded-lg px-2 py-1 hover:bg-neutral-100"
+			placeholder="Enter todo..."
+			{ref inputRef}
+		/>
+		<button class="button bg-blue-700 text-white hover:bg-blue-600">{'Add Todo'}</button>
+	</form>
+}

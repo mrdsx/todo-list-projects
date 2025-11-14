@@ -8,6 +8,7 @@ This repository contains Todo List apps written using next libraries & framework
 4. Vue
 5. Svelte
 6. Lit
+7. Ripple
 
 ## Getting started
 
